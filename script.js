@@ -19,7 +19,9 @@ camera = new THREE.PerspectiveCamera(
     1000
 );
 
-camera.position.set(0,2,5);
+camera.position.set(0,1.5,4);
+    
+// camera.position.set(0,2,5);
 
 renderer = new THREE.WebGLRenderer({antialias:true});
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -39,19 +41,49 @@ const loader = new OBJLoader();
 
 loader.load("catV1.obj", function(object){
 
+    const material = new THREE.MeshStandardMaterial({
+        color: 0xff9900
+    });
+
     object.traverse(function(child){
         if(child.isMesh){
-            child.material = new THREE.MeshStandardMaterial({
-                color:0xff9900
-            });
+            child.material = material;
         }
     });
+
+    // Center the model
+    const box = new THREE.Box3().setFromObject(object);
+    const center = box.getCenter(new THREE.Vector3());
+
+    object.position.sub(center);
+
+    // Scale model to reasonable size
+    const size = box.getSize(new THREE.Vector3()).length();
+    const scale = 2 / size;
+    object.scale.setScalar(scale);
 
     catModel = object;
     scene.add(catModel);
 
 });
 
+// loader.load("catV1.obj", function(object){
+
+//     object.traverse(function(child){
+//         if(child.isMesh){
+//             child.material = new THREE.MeshStandardMaterial({
+//                 color:0xff9900
+//             });
+//         }
+//     });
+
+//     catModel = object;
+//     scene.add(catModel);
+
+// });
+
+camera.lookAt(0,0,0);
+    
 window.addEventListener("resize", onWindowResize);
 
 setupUI();

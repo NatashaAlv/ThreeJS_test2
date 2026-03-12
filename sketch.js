@@ -1,15 +1,15 @@
 let catModel;
+let sharkModel;
 
-let rotX = 0;
-let rotY = 0;
+let currentModel;
 
 let colorPicker;
 let sizeSlider;
 
 function preload(){
 
-// load the OBJ model
 catModel = loadModel('catV1.obj', true);
+sharkModel = loadModel('sharkie_V1.obj', true);
 
 }
 
@@ -20,13 +20,24 @@ createCanvas(windowWidth, windowHeight, WEBGL);
 colorPicker = document.getElementById("furColor");
 sizeSlider = document.getElementById("sizeSlider");
 
+currentModel = catModel;
+
+// Button controls
+document.getElementById("catButton").onclick = () => {
+    currentModel = catModel;
+};
+
+document.getElementById("sharkButton").onclick = () => {
+    currentModel = sharkModel;
+};
+
 }
 
 function draw(){
 
 background(220);
 
-orbitControl(); // mouse rotation
+orbitControl();
 
 ambientLight(150);
 directionalLight(255,255,255,0.5,1,-0.5);
@@ -36,11 +47,12 @@ let size = sizeSlider.value;
 
 push();
 
-scale(size * 50); // increase model size if needed
-normalMaterial();
-fill(c);
+scale(size * 50);
 
-model(catModel);
+fill(c);
+normalMaterial();
+
+model(currentModel);
 
 pop();
 

@@ -48,7 +48,7 @@ let size = sizeSlider.value;
 push();
 
 // scale(size * 50);
-scale(size * 10);
+scale(size);
 
 // fill(c);
 // normalMaterial();

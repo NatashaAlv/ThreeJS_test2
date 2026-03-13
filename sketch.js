@@ -8,7 +8,7 @@ let sizeSlider;
 
 function preload(){
 
-catModel = loadModel('catV2.obj', true);
+catModel = loadModel('catV1.obj', true);
 sharkModel = loadModel('sharkie_V1.obj', true);
 
 }

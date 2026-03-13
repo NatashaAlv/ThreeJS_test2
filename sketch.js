@@ -50,8 +50,9 @@ push();
 // scale(size * 50);
 scale(size * 10);
 
-fill(c);
+// fill(c);
 // normalMaterial();
+ambientMaterial(c);
 
 model(currentModel);
 

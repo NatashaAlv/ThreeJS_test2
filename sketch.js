@@ -51,7 +51,8 @@ noStroke();
 
 // scale(size * 50);
 // scale(size);
-let baseScale = 0.02;
+// let baseScale = 0.02;
+let baseScale = 1;
 scale(size * baseScale);
 
 // fill(c);

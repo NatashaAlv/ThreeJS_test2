@@ -4,34 +4,8 @@ overflow:hidden;
 font-family:Arial;
 }
 
-#clr{
+#ui{
 position:absolute;
-top:20px;
-left:20px;
-background:white;
-padding:15px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
-}
-
-#animal{
-/* position:absolute; */
-/* margin: auto; */
-align-items: center;
-  
-top:20px;
-left:20px;
-background:white;
-padding:15px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
-}
-
-#scale{
-display: flex;
-    justify-content: center; /* Aligns horizontally to the center */
-    align-items: flex-end;
-  
 top:20px;
 left:20px;
 background:white;

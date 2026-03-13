@@ -45,6 +45,8 @@ directionalLight(255,255,255,0.5,1,-0.5);
 let c = colorPicker.value;
 let size = sizeSlider.value;
 
+let baseScale = 1000000;
+    
 push();
 
 noStroke();
@@ -52,7 +54,6 @@ noStroke();
 // scale(size * 50);
 // scale(size);
 // let baseScale = 0.02;
-let baseScale = 1000000;
 scale(size * baseScale);
 
 // fill(c);

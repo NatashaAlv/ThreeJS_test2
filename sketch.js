@@ -3,11 +3,15 @@ let sharkModel;
 
 let currentModel;
 
+let rotX = 0;
+let rotY = 0;
+
 let colorPicker;
 let sizeSlider;
 
 function preload(){
 
+// load the OBJ model
 catModel = loadModel('catV1.obj', true);
 sharkModel = loadModel('sharkie_V1.obj', true);
 
@@ -37,28 +41,21 @@ function draw(){
 
 background(220);
 
-orbitControl();
+orbitControl(); // mouse rotation
 
 ambientLight(150);
 directionalLight(255,255,255,0.5,1,-0.5);
 
 let c = colorPicker.value;
 let size = sizeSlider.value;
-    
+
 push();
 
-noStroke();
+scale(size * 50); // increase model size if needed
+normalMaterial();
+fill(c);
 
-scale(size * 50);
-// scale(size);
-// let baseScale = 0.02;
-// let baseScale = 1000000;
-// scale(size * baseScale);
-
-// fill(c);
-// normalMaterial();
-ambientMaterial(c);
-
+// model(catModel);
 model(currentModel);
 
 pop();

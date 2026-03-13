@@ -47,10 +47,11 @@ let size = sizeSlider.value;
 
 push();
 
-scale(size * 50);
+// scale(size * 50);
+scale(size * 10);
 
 fill(c);
-normalMaterial();
+// normalMaterial();
 
 model(currentModel);
 
